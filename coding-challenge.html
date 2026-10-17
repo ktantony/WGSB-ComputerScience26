@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>WGSB Coding Challenge</title>
+<link rel="stylesheet" href="mainstyle.css">
+
+<style>
+
+.quiz-container{
+max-width:900px;
+margin:auto;
+padding:30px;
+}
+
+.question{
+background:white;
+padding:20px;
+margin-bottom:20px;
+border-radius:15px;
+box-shadow:0 4px 10px rgba(0,0,0,.1);
+}
+
+button{
+background:#003366;
+color:white;
+padding:12px 25px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+}
+
+button:hover{
+background:#005b96;
+}
+
+#result{
+font-size:2rem;
+text-align:center;
+margin-top:30px;
+font-weight:bold;
+}
+
+</style>
+
+</head>
+
+<body>
+<header class="hero">
+<h1>🏆 Computer Science Challenge</h1>
+<p>Can You Beat Year 11?</p>
+</header>
+
+<nav class="navbar">
+    <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="Key-Stage-3-7.html">Year 7</a></li>
+        <li><a href="Key-Stage-3-8.html">Year 8</a></li>
+        <li><a href="Key-Stage-3-9.html">Year 9</a></li>
+		<li><a href="Key-Stage-4.html">GCSE</a></li>
+        <li><a href="Key-Stage-5.html">A Level</a></li>
+    </ul>
+</nav>
+
+<div class="quiz-container">
+
+<form id="quiz">
+
+<div class="question">
+<h3>1. What does CPU stand for?</h3>
+
+<label><input type="radio" name="q1" value="1"> Central Processing Unit</label><br>
+<label><input type="radio" name="q1" value="0"> Computer Processing Unit</label><br>
+<label><input type="radio" name="q1" value="0"> Central Program Utility</label>
+
+</div>
+
+<div class="question">
+<h3>2. How many bits are in a byte?</h3>
+
+<label><input type="radio" name="q2" value="1"> 8</label><br>
+<label><input type="radio" name="q2" value="0"> 4</label><br>
+<label><input type="radio" name="q2" value="0"> 16</label>
+
+</div>
+
+<div class="question">
+<h3>3. Which number system uses only 0 and 1?</h3>
+
+<label><input type="radio" name="q3" value="1"> Binary</label><br>
+<label><input type="radio" name="q3" value="0"> Decimal</label><br>
+<label><input type="radio" name="q3" value="0"> Hexadecimal</label>
+
+</div>
+
+<div class="question">
+<h3>4. What does RAM stand for?</h3>
+
+<label><input type="radio" name="q4" value="1"> Random Access Memory</label><br>
+<label><input type="radio" name="q4" value="0"> Read Access Memory</label><br>
+<label><input type="radio" name="q4" value="0"> Random Application Module</label>
+
+</div>
+
+<div class="question">
+<h3>5. Which language is commonly taught first?</h3>
+
+<label><input type="radio" name="q5" value="1"> Python</label><br>
+<label><input type="radio" name="q5" value="0"> Assembly</label><br>
+<label><input type="radio" name="q5" value="0"> Machine Code</label>
+
+</div>
+
+<button type="button" onclick="markQuiz()">
+Calculate Score
+</button>
+
+</form>
+
+<div id="result"></div>
+
+</div>
+
+<script>
+
+function markQuiz(){
+
+let score=0;
+
+for(let i=1;i<=5;i++){
+
+let answer=document.querySelector('input[name="q'+i+'"]:checked');
+
+if(answer){
+score += Number(answer.value);
+}
+
+}
+
+let percentage=(score/5)*100;
+
+document.getElementById("result").innerHTML=
+"Your Score: "+score+"/5 ("+percentage+"%)";
+
+}
+
+</script>
+
+<footer>
+    WGSB Computer Science Department
+</footer>
+</body>
+
+</html>
